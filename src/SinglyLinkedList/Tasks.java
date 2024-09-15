@@ -1,56 +1,59 @@
 package SinglyLinkedList;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
-class Task{
-    //Atributos da tarefa
-    private String taskDescription;
-    private int id;
-    private boolean completed;
-    //Métido construtor da tarefa
-    public Task(String task, int id, boolean completed) {
-        this.taskDescription = task;
-        this.id=id;
-        this.completed = false;
-    }
-    //Getters e setters
-    public String getTaskDescription(){
-        return this.taskDescription;
-    }
-    public int getId(){
-        return this.id;
-    }
-    public boolean getCompleted(){
-        return this.completed;
-    }
-    public void setCompleted(){
-        this.completed = true;
-    }
-    public void setTaskDescription(String taskDescription){
-        this.taskDescription = taskDescription;
-    }
-    public void setId(int id){
-        this.id = id;
-    }
 
-    //Metodo toString
-    public String toString(){
-        String concluida;
-        if(completed){
-            concluida="Sim";
-        }else{
-            concluida="Não";
-        }
-
-        return "ID " + id + " - Tarefa: " + taskDescription + " - Concluída: " + concluida;
-    }
-
-}
 public class Tasks {
-    private LinkedList<Task> taskList;
+    private ArrayList<Task> taskList;
     private Task task;
 
+    public static class Task{
+        //Atributos da tarefa
+        private String taskDescription;
+        private int id;
+        private boolean completed;
+        //Métido construtor da tarefa
+        public Task(String task, int id, boolean completed) {
+            this.taskDescription = task;
+            this.id=id;
+            this.completed = false;
+        }
+        //Getters e setters
+        public String getTaskDescription(){
+            return this.taskDescription;
+        }
+        public int getId(){
+            return this.id;
+        }
+        public boolean getCompleted(){
+            return this.completed;
+        }
+        public void setCompleted(){
+            this.completed = true;
+        }
+        public void setTaskDescription(String taskDescription){
+            this.taskDescription = taskDescription;
+        }
+        public void setId(int id){
+            this.id = id;
+        }
+
+        //Metodo toString
+        public String toString(){
+            String concluida;
+            if(completed){
+                concluida="Sim";
+            }else{
+                concluida="Não";
+            }
+
+            return "ID " + id + " - Tarefa: " + taskDescription + " - Concluída: " + concluida;
+        }
+
+    }
+
     public Tasks(){
-        this.taskList = new LinkedList<>();
+        this.taskList = new ArrayList<>();
     }
     //Adicionar tarefa à lista
     public void createTask(String task){

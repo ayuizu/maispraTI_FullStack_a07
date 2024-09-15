@@ -2,68 +2,70 @@ package SinglyLinkedList;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
+import java.util.ArrayList;
 
-class BrowsingData{
-    private String url;
-    private String title;
-    private String date;
-    private int id;
-
-    public BrowsingData(){
-
-    }
-    public BrowsingData(String url, String title, String date, int id){
-        this.url = url;
-        this.title = title;
-        this.date = date;
-        this.id = id;
-    }
-    public String getUrl(){
-        return url;
-    }
-    public String getTitle(){
-        return title;
-    }
-    public String getDate(){
-        return date;
-    }
-    public int getId(){
-        return id;
-    }
-    public void setUrl(String url){
-        this.url = url;
-    }
-    public void setTitle(String title){
-        this.title = title;
-    }
-    public void setDate(){
-        LocalDateTime actualDateHour = LocalDateTime.now();
-        DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("dd/MM/uuuu");
-        DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm:ss");
-        this.date = formatterDate.format(actualDateHour) + " " + formatterHour.format(actualDateHour);
-    }
-    public void setId(int id){
-        this.id=id;
-    }
-    //Metodo toString
-    public String toString(){
-        return "ID " + this.id + " - " + this.title + " - Data " + this.date + " - Url " + this.url;
-    }
-
-}
-
+//Classe para Histórico de Busca
 public class BrowsingHistory {
     //O histórico de navegação vai armazenar até 5 URLs.
     //Ao atingir 5 históricos, os antigos vão sendo descartados.
 
-    private LinkedList<BrowsingData> browsingHistory;
+    private ArrayList<BrowsingData> browsingHistory;
     private BrowsingData browsingData;
     private int count;
-
     private int historySize;
 
+    //Classe para o dado no histórico de navegação
+    public static class BrowsingData{
+        private String url;
+        private String title;
+        private String date;
+        private int id;
+
+        public BrowsingData(){
+
+        }
+        public BrowsingData(String url, String title, String date, int id){
+            this.url = url;
+            this.title = title;
+            this.date = date;
+            this.id = id;
+        }
+        public String getUrl(){
+            return url;
+        }
+        public String getTitle(){
+            return title;
+        }
+        public String getDate(){
+            return date;
+        }
+        public int getId(){
+            return id;
+        }
+        public void setUrl(String url){
+            this.url = url;
+        }
+        public void setTitle(String title){
+            this.title = title;
+        }
+        public void setDate(){
+            LocalDateTime actualDateHour = LocalDateTime.now();
+            DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+            DateTimeFormatter formatterHour = DateTimeFormatter.ofPattern("HH:mm:ss");
+            this.date = formatterDate.format(actualDateHour) + " " + formatterHour.format(actualDateHour);
+        }
+        public void setId(int id){
+            this.id=id;
+        }
+        //Metodo toString
+        public String toString(){
+            return "ID " + this.id + " - " + this.title + " - Data " + this.date + " - Url " + this.url;
+        }
+
+    }
+
     public BrowsingHistory(){
-        this.browsingHistory = new LinkedList<>();
+        this.browsingHistory = new ArrayList<>();
         this.historySize = 5;
     }
 

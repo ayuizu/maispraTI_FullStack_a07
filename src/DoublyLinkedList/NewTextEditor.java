@@ -1,17 +1,17 @@
-package SinglyLinkedList;
-import java.util.ArrayList;
+package DoublyLinkedList;
 
-//Classe para Editor de Texto
-public class TextEditor {
-    private ArrayList<TextEdit> editionsList;
+import java.util.LinkedList;
+
+public class NewTextEditor {
+    private LinkedList<NewTextEdit> editionsList;
     private int index;
 
     //Classe para edição de texto
-    public static class TextEdit{
+    public static class NewTextEdit{
         private String text;
         private int id;
         //Metodo construtor
-        public TextEdit(String text){
+        public NewTextEdit(String text){
             this.text = text;
             this.id = 0;
         }
@@ -35,8 +35,8 @@ public class TextEditor {
     }
 
     //Metodo construtor
-    public TextEditor() {
-        editionsList = new ArrayList<>();
+    public NewTextEditor() {
+        editionsList = new LinkedList<>();
     }
     //Metodos de acesso
     public int getIndex(){
@@ -51,11 +51,11 @@ public class TextEditor {
     }
 
     //Variável para guardar 1 edição desfeita. Ela é perdida caso seja adicionado algo antes de recuperá-la.
-    TextEdit editMemo;
+    NewTextEdit editMemo;
 
     //Adicionar uma edição
     public void addEdit(String text){
-        TextEdit edit = new TextEdit(text);
+        NewTextEdit edit = new NewTextEdit(text);
         edit.setId(editionsList.size()+1);
         editionsList.add(edit);
         editMemo = null;
@@ -94,33 +94,9 @@ public class TextEditor {
 
     public String toString(){
         String text = "";
-        for(TextEdit edit : editionsList){
+        for(NewTextEdit edit : editionsList){
             text = text + edit.toString() + "\n";
         }
         return text;
     }
-
-    //Teste
-    /*
-    public static void main(String[] args) {
-        TextEditor te = new TextEditor();
-        te.addEdit("'But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it");
-        te.addEdit("'But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much.");
-        te.addEdit("'But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much. My experience tells me that we get no more than two or three such chances in a life time,");
-        te.addEdit("'But who can say what's best? That's why you need to grab whatever chance you have of happiness where you find it, and not worry about other people too much. My experience tells me that we get no more than two or three such chances in a life time, and if we let them go, we regret it for the rest of our lives.'\n" +
-                "― Haruki Murakami, Norwegian Wood");
-
-        System.out.println("Todos:\n" + te.toString());
-        System.out.println("Edição atual:\n" + te.getCurrentEdit()); //4
-
-        te.undoEdit();
-        System.out.println("Edição atual após undo:\n" + te.getCurrentEdit()); //3
-
-        te.undoEdit();
-        System.out.println("Edição atual após undo:\n" + te.getCurrentEdit()); //2
-
-        te.redoEdit();
-        System.out.println("Edição atual após redo:\n" + te.getCurrentEdit());
-    }
-    */
 }
