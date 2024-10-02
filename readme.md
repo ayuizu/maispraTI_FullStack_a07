@@ -7,13 +7,13 @@ Para executar os exercícios, você deve possuir instalado em seu PC a Máquina 
 
 
 v01
---- Lista Simplesmente Encadeada
+Lista Simplesmente Encadeada
 [1] Gerenciador de tarefas
 [2] Histórico de navegação
 [3] Editor de texto
---- Lista Duplamente Encadeada
+Lista Duplamente Encadeada
 [4] Editor de texto
 
 v02
---- Lista Duplamente Encadeada
+Lista Duplamente Encadeada
 [5] Jogo de cartas
